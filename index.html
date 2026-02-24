@@ -5,44 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SuperPáscoa</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
 body{
 margin:0;
-font-family: 'Segoe UI', sans-serif;
-background: linear-gradient(135deg,#1e1e2f,#3a0ca3,#7209b7);
+font-family:'Poppins',sans-serif;
+background: linear-gradient(135deg,#2b0a0a,#4a0d0d,#1a0000);
 color:white;
 }
 
 header{
 text-align:center;
-padding:40px 20px;
-font-size:40px;
-font-weight:900;
-letter-spacing:2px;
+padding:50px 20px;
 }
 
-.sub{
+header h1{
+font-size:42px;
+font-weight:800;
+color:gold;
+}
+
+.section-title{
 text-align:center;
-font-size:18px;
-opacity:0.8;
-margin-bottom:30px;
+margin:40px 0 10px 0;
+font-size:28px;
 }
 
 .container{
-max-width:1000px;
+max-width:1200px;
 margin:auto;
-display:grid;
-grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
 padding:20px;
+display:grid;
+grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
 background:white;
 color:#333;
 border-radius:20px;
-padding:25px;
-box-shadow:0 15px 35px rgba(0,0,0,0.4);
+overflow:hidden;
+box-shadow:0 15px 30px rgba(0,0,0,0.4);
 transition:0.3s;
 }
 
@@ -50,49 +54,36 @@ transition:0.3s;
 transform:translateY(-8px);
 }
 
-.card h2{
-margin-top:0;
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card-content{
+padding:15px;
+text-align:center;
 }
 
 .price{
-font-size:26px;
+font-size:20px;
 font-weight:bold;
-margin:15px 0;
-}
-
-.tradicional{border-top:8px solid #6c757d;}
-.gourmet{border-top:8px solid #7209b7;}
-.premium{
-border-top:8px solid gold;
-background:linear-gradient(135deg,#fff,#fff9db);
+margin:10px 0;
 }
 
 button{
 width:100%;
-padding:12px;
+padding:10px;
 border:none;
-border-radius:10px;
+border-radius:25px;
 background:#7209b7;
 color:white;
 font-weight:bold;
-font-size:16px;
 cursor:pointer;
-transition:0.3s;
 }
 
 button:hover{
 background:#560bad;
-}
-
-.badge{
-background:gold;
-color:black;
-padding:5px 10px;
-border-radius:20px;
-font-size:12px;
-font-weight:bold;
-display:inline-block;
-margin-bottom:10px;
 }
 
 .footer{
@@ -105,32 +96,85 @@ opacity:0.6;
 
 <body>
 
-<header>🍫 SuperPáscoa 2026 🍫</header>
-<div class="sub">Ovos artesanais de 240g | Frete grátis acima de 2 unidades</div>
+<header>
+<h1>🍫 SuperPáscoa 2026</h1>
+<p>Todos os ovos 240g • Frete grátis acima de 2 unidades</p>
+</header>
 
+<h2 class="section-title">🟤 Tradicional - R$ 54,90</h2>
 <div class="container">
 
-<div class="card tradicional">
-<h2>🟤 Tradicional</h2>
-<p>Sabores clássicos que todo mundo ama.</p>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7">
+<div class="card-content">
+<h3>Brigadeiro</h3>
 <div class="price">R$ 54,90</div>
-<button>Comprar</button>
+<button>Adicionar</button>
+</div>
 </div>
 
-<div class="card gourmet">
-<div class="badge">Mais Vendido</div>
-<h2>🟣 Gourmet</h2>
-<p>Combinações especiais e recheios premium.</p>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c">
+<div class="card-content">
+<h3>Oreo</h3>
+<div class="price">R$ 54,90</div>
+<button>Adicionar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1586985289906-406988974504">
+<div class="card-content">
+<h3>Morango</h3>
+<div class="price">R$ 54,90</div>
+<button>Adicionar</button>
+</div>
+</div>
+
+</div>
+
+<h2 class="section-title">🟣 Gourmet - R$ 64,90</h2>
+<div class="container">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511389026070-a14ae610a1be">
+<div class="card-content">
+<h3>Ninho com Nutella</h3>
 <div class="price">R$ 64,90</div>
-<button>Comprar</button>
+<button>Adicionar</button>
+</div>
 </div>
 
-<div class="card premium">
-<div class="badge">Exclusivo</div>
-<h2>🟡 Premium</h2>
-<p>Experiência de confeitaria fina.</p>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1606312619344-9b88a1c5b4f7">
+<div class="card-content">
+<h3>Doce de Leite Especial</h3>
+<div class="price">R$ 64,90</div>
+<button>Adicionar</button>
+</div>
+</div>
+
+</div>
+
+<h2 class="section-title">🟡 Premium - R$ 84,90</h2>
+<div class="container">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0">
+<div class="card-content">
+<h3>Ferrero</h3>
 <div class="price">R$ 84,90</div>
-<button>Comprar</button>
+<button>Adicionar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1605478031212-7f0f5c8b3a1e">
+<div class="card-content">
+<h3>Pistache Premium</h3>
+<div class="price">R$ 84,90</div>
+<button>Adicionar</button>
+</div>
 </div>
 
 </div>
