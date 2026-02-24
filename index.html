@@ -8,77 +8,97 @@
 <style>
 body{
 margin:0;
-font-family: Arial, sans-serif;
-background: linear-gradient(135deg,#3a0ca3,#7209b7,#f72585);
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg,#1e1e2f,#3a0ca3,#7209b7);
 color:white;
-text-align:center;
 }
 
 header{
-padding:30px;
-font-size:32px;
-font-weight:bold;
+text-align:center;
+padding:40px 20px;
+font-size:40px;
+font-weight:900;
+letter-spacing:2px;
+}
+
+.sub{
+text-align:center;
+font-size:18px;
+opacity:0.8;
+margin-bottom:30px;
 }
 
 .container{
-background:white;
-color:black;
-width:90%;
-max-width:800px;
-margin:20px auto;
+max-width:1000px;
+margin:auto;
+display:grid;
+grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 padding:20px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
-h2{
+.card{
+background:white;
+color:#333;
+border-radius:20px;
+padding:25px;
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h2{
 margin-top:0;
 }
 
-select, button{
-width:100%;
-padding:10px;
-margin:10px 0;
-border-radius:8px;
-border:none;
-font-size:16px;
+.price{
+font-size:26px;
+font-weight:bold;
+margin:15px 0;
+}
+
+.tradicional{border-top:8px solid #6c757d;}
+.gourmet{border-top:8px solid #7209b7;}
+.premium{
+border-top:8px solid gold;
+background:linear-gradient(135deg,#fff,#fff9db);
 }
 
 button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
 background:#7209b7;
 color:white;
-cursor:pointer;
 font-weight:bold;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
 }
 
 button:hover{
 background:#560bad;
 }
 
-.price{
-font-size:22px;
+.badge{
+background:gold;
+color:black;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
 font-weight:bold;
-margin-top:10px;
-}
-
-.free{
-color:green;
-font-weight:bold;
-margin-top:10px;
-}
-
-.recheios{
-text-align:left;
-max-height:200px;
-overflow-y:auto;
-border:1px solid #ddd;
-padding:10px;
-border-radius:8px;
+display:inline-block;
+margin-bottom:10px;
 }
 
 .footer{
-margin-top:30px;
-font-size:14px;
+text-align:center;
+padding:30px;
+opacity:0.6;
 }
 </style>
 </head>
@@ -86,93 +106,38 @@ font-size:14px;
 <body>
 
 <header>🍫 SuperPáscoa 2026 🍫</header>
+<div class="sub">Ovos artesanais de 240g | Frete grátis acima de 2 unidades</div>
 
 <div class="container">
 
-<h2>Escolha sua Categoria (240g)</h2>
-
-<select id="categoria" onchange="updateCategoria()">
-<option value="54.90">🟤 Tradicional - R$54,90</option>
-<option value="64.90">🟣 Gourmet - R$64,90</option>
-<option value="84.90">🟡 Premium - R$84,90</option>
-</select>
-
-<hr>
-
-<h2>Monte Seu Ovo Personalizado</h2>
-<p>Base: R$53,90 | Até 3 recheios grátis</p>
-<p>Extra acima de 3 recheios: +R$4,00 cada</p>
-
-<div class="recheios">
-
-<label><input type="checkbox" value="0" onchange="updateCustom()"> Brigadeiro</label><br>
-<label><input type="checkbox" value="0" onchange="updateCustom()"> Ninho</label><br>
-<label><input type="checkbox" value="0" onchange="updateCustom()"> Nutella</label><br>
-<label><input type="checkbox" value="0" onchange="updateCustom()"> Oreo</label><br>
-<label><input type="checkbox" value="0" onchange="updateCustom()"> Ferrero</label><br>
-<label><input type="checkbox" value="0" onchange="updateCustom()"> Maracujá</label><br>
-<label><input type="checkbox" value="0" onchange="updateCustom()"> Morango</label><br>
-<label><input type="checkbox" value="0" onchange="updateCustom()"> Doce de Leite</label><br>
-<label><input type="checkbox" value="0" onchange="updateCustom()"> Prestígio</label><br>
-<label><input type="checkbox" value="0" onchange="updateCustom()"> Paçoca</label><br>
-
+<div class="card tradicional">
+<h2>🟤 Tradicional</h2>
+<p>Sabores clássicos que todo mundo ama.</p>
+<div class="price">R$ 54,90</div>
+<button>Comprar</button>
 </div>
 
-<div class="price">
-Valor do Ovo Personalizado: R$ <span id="customPrice">53.90</span>
+<div class="card gourmet">
+<div class="badge">Mais Vendido</div>
+<h2>🟣 Gourmet</h2>
+<p>Combinações especiais e recheios premium.</p>
+<div class="price">R$ 64,90</div>
+<button>Comprar</button>
 </div>
 
-<hr>
-
-<h2>Quantidade</h2>
-<input type="number" id="quantidade" value="1" min="1" onchange="updateFrete()">
-
-<div id="freteMsg"></div>
-
-<button onclick="alert('Pedido adicionado! Em breve vamos integrar pagamento.')">
-Adicionar ao Carrinho
-</button>
+<div class="card premium">
+<div class="badge">Exclusivo</div>
+<h2>🟡 Premium</h2>
+<p>Experiência de confeitaria fina.</p>
+<div class="price">R$ 84,90</div>
+<button>Comprar</button>
+</div>
 
 </div>
 
 <div class="footer">
 SuperPáscoa © 2026
 </div>
-
-<script>
-
-function updateCategoria(){
-let valor = document.getElementById("categoria").value;
-alert("Categoria selecionada: R$" + valor);
-}
-
-function updateCustom(){
-let checkboxes = document.querySelectorAll('.recheios input[type="checkbox"]:checked');
-let base = 53.90;
-let extras = 0;
-
-if(checkboxes.length > 3){
-extras = (checkboxes.length - 3) * 4;
-}
-
-let total = base + extras;
-
-document.getElementById("customPrice").innerText = total.toFixed(2);
-}
-
-function updateFrete(){
-let qtd = document.getElementById("quantidade").value;
-
-if(qtd >= 2){
-document.getElementById("freteMsg").innerHTML =
-"<div class='free'>🎉 Frete Grátis aplicado!</div>";
-}else{
-document.getElementById("freteMsg").innerHTML =
-"<div style='color:red;font-weight:bold;'>Frete grátis acima de 2 unidades</div>";
-}
-}
-
-</script>
 
 </body>
 </html>
